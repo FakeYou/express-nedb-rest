@@ -133,7 +133,7 @@ function addRestMethods(router) {
     //--------------------------------------------------------------------------
     router.get('/:collection', function (req, res, next) {
 
-        if (typeof(req.query.$find)) {
+        if (typeof(req.query.$find) != "undefined") {
             var cursor = req.nedb.find(JSON.parse(req.query.$find));
             cursor.exec(function(err, docs) {
                 if (err) {
